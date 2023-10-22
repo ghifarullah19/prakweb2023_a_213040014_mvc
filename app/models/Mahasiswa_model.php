@@ -14,13 +14,13 @@ class Mahasiswa_model {
     }
 
     public function getMahasiswaById($id) {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE id=:id");
         $this->db->bind('id', $id);
         return $this->db->single();
     }
 
     public function tambahDataMahasiswa($data) {
-        $query = 'INSERT INTO mahasiswa VALUES("", :nama, :nrp, :email, :jurusan)';
+        $query = "INSERT INTO " . $this->table . " VALUES ('0', :nrp, :nama, :email, :jurusan)";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nrp', $data['nrp']);
